@@ -58,7 +58,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 tableView.snp.removeConstraints()
                 
                 collectionView.snp.makeConstraints({ (make) in
-                    make.edges.equalTo(view)
+                    make.top.equalTo(topLayoutGuide.snp.bottom)
+                    make.left.equalTo(view)
+                    make.right.equalTo(view)
+                    make.bottom.equalTo(view)
                 })
                 
             case .unspecified: fallthrough
@@ -68,6 +71,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 tableView.snp.makeConstraints { (make) in
                     make.edges.equalTo(view)
                 }
+                
                 // Removing CollectionView Constraints
                 collectionView.snp.removeConstraints()
             }
